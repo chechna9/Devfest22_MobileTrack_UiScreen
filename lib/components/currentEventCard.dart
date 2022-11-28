@@ -14,16 +14,23 @@ class CurrentEventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.only(
+        top: 0,
+        left: 30,
+        right: 30,
+        bottom: 12,
+      ),
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/background5.png'),
           alignment: Alignment.topCenter,
-          fit: BoxFit.fill,
+          fit: BoxFit.contain,
         ),
       ),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40),
+        // margin: const EdgeInsets.symmetric(horizontal: 20),
+
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/background4.png'),

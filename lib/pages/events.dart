@@ -18,15 +18,19 @@ class Events extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: const [
           // upper side
-          Upper(),
+          Flexible(
+            child: Upper(),
+          ),
           // event info
           Flexible(
-            child: CurrentEventCard(
-              title: 'Devfest 2022',
-              desc: 'Devfest is an anually event hel by gdg community',
-              participants: 80,
+            child: Center(
+              child: CurrentEventCard(
+                title: 'Devfest 2022',
+                desc: 'Devfest is an anually event hel by gdg community',
+                participants: 80,
+              ),
             ),
           ),
         ],
