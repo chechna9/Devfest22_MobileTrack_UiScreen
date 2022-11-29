@@ -52,159 +52,182 @@ class _FeedbacksState extends State<Feedbacks> {
               ),
               Expanded(
                 flex: 3,
-                child: SingleChildScrollView(
-                  child: Form(
-                    key: _formKey,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Transform.translate(
-                            offset: const Offset(30, 0),
-                            child: const Text(
-                              'Name / E-mail',
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 0,
-                                horizontal: 10,
-                              ),
-                              filled: true,
-                              fillColor: Colors.grey,
-                              focusedBorder:
-                                  myOutlinedBorder(color: Colors.black),
-                              enabledBorder:
-                                  myOutlinedBorder(color: Colors.transparent),
-                              errorBorder: myOutlinedBorder(color: Colors.red),
-                              focusedErrorBorder:
-                                  myOutlinedBorder(color: Colors.red),
-                            ),
-                            onChanged: ((value) {
-                              name = value;
-                            }),
-                            validator: (value) =>
-                                value!.isEmpty ? 'required fieldd' : null,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Transform.translate(
-                            offset: const Offset(30, 0),
-                            child: const Text(
-                              'Rate your experience in the event',
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          // rating circles
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      bottom: 0,
+                      left: 20,
+                      child: Image.asset(
+                        'assets/Star.png',
+                        width: 20,
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 45,
+                      right: 0,
+                      child: Image.asset(
+                        'assets/Arrow.png',
+                        width: 20,
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      child: Form(
+                        key: _formKey,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              RateElement(
-                                color: Colors.red,
-                                selfRate: 1,
-                                update: setRate,
-                                rate: rate,
+                              Transform.translate(
+                                offset: const Offset(30, 0),
+                                child: const Text(
+                                  'Name / E-mail',
+                                ),
                               ),
-                              RateElement(
-                                color: Colors.purple,
-                                selfRate: 2,
-                                update: setRate,
-                                rate: rate,
+                              const SizedBox(
+                                height: 20,
                               ),
-                              RateElement(
-                                color: Colors.yellow,
-                                selfRate: 3,
-                                update: setRate,
-                                rate: rate,
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 0,
+                                    horizontal: 10,
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.grey,
+                                  focusedBorder:
+                                      myOutlinedBorder(color: Colors.black),
+                                  enabledBorder: myOutlinedBorder(
+                                      color: Colors.transparent),
+                                  errorBorder:
+                                      myOutlinedBorder(color: Colors.red),
+                                  focusedErrorBorder:
+                                      myOutlinedBorder(color: Colors.red),
+                                ),
+                                onChanged: ((value) {
+                                  name = value;
+                                }),
+                                validator: (value) =>
+                                    value!.isEmpty ? 'required fieldd' : null,
                               ),
-                              RateElement(
-                                color: Colors.lightGreen,
-                                selfRate: 4,
-                                update: setRate,
-                                rate: rate,
+                              const SizedBox(
+                                height: 20,
                               ),
-                              RateElement(
-                                color: Colors.green,
-                                selfRate: 5,
-                                update: setRate,
-                                rate: rate,
+                              Transform.translate(
+                                offset: const Offset(30, 0),
+                                child: const Text(
+                                  'Rate your experience in the event',
+                                ),
                               ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          // rate
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              // rating circles
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  RateElement(
+                                    color: Colors.red,
+                                    selfRate: 1,
+                                    update: setRate,
+                                    rate: rate,
+                                  ),
+                                  RateElement(
+                                    color: Colors.purple,
+                                    selfRate: 2,
+                                    update: setRate,
+                                    rate: rate,
+                                  ),
+                                  RateElement(
+                                    color: Colors.yellow,
+                                    selfRate: 3,
+                                    update: setRate,
+                                    rate: rate,
+                                  ),
+                                  RateElement(
+                                    color: Colors.lightGreen,
+                                    selfRate: 4,
+                                    update: setRate,
+                                    rate: rate,
+                                  ),
+                                  RateElement(
+                                    color: Colors.green,
+                                    selfRate: 5,
+                                    update: setRate,
+                                    rate: rate,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              // rate
 
-                          Transform.translate(
-                            offset: const Offset(30, 0),
-                            child: const Text(
-                              'MORE DETAILS',
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          TextFormField(
-                            onChanged: ((value) {
-                              details = value;
-                            }),
-                            maxLines: 3,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.grey,
-                              focusedBorder:
-                                  myOutlinedBorder(color: Colors.black),
-                              enabledBorder:
-                                  myOutlinedBorder(color: Colors.transparent),
-                            ),
-                          ),
+                              Transform.translate(
+                                offset: const Offset(30, 0),
+                                child: const Text(
+                                  'MORE DETAILS',
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              TextFormField(
+                                onChanged: ((value) {
+                                  details = value;
+                                }),
+                                maxLines: 3,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.grey,
+                                  focusedBorder:
+                                      myOutlinedBorder(color: Colors.black),
+                                  enabledBorder: myOutlinedBorder(
+                                      color: Colors.transparent),
+                                ),
+                              ),
 
-                          Container(
-                            margin: const EdgeInsets.symmetric(vertical: 10),
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: TextButton(
-                                onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(
-                                      content: Text("$name $rate $details"),
-                                    ));
-                                  }
-                                },
-                                style: TextButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 20),
-                                  backgroundColor: Colors.blue[200],
-                                  shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
+                              Container(
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      if (_formKey.currentState!.validate()) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                          content: Text("$name $rate $details"),
+                                        ));
+                                      }
+                                    },
+                                    style: TextButton.styleFrom(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 20),
+                                      backgroundColor: Colors.blue[200],
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(20),
+                                        ),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      "Submit",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                child: const Text(
-                                  "Submit",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
               Expanded(
