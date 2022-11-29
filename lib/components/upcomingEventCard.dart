@@ -1,4 +1,4 @@
-import 'package:devfest_challenges/models/eventModel.dart';
+import 'package:devfest_challenges/models/event_model.dart';
 import 'package:flutter/material.dart';
 
 class UpcomingEventCard extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:devfest_challenges/components/currentEventCard.dart';
 import 'package:devfest_challenges/components/upcomingEventCard.dart';
-import 'package:devfest_challenges/models/eventModel.dart';
+import 'package:devfest_challenges/models/event_model.dart';
 import 'package:flutter/material.dart';
 
 List<EventModele> eventList = [

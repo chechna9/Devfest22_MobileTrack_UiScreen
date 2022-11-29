@@ -1,3 +1,4 @@
+import 'package:devfest_challenges/pages/agenda_page.dart';
 import 'package:devfest_challenges/pages/events.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const SafeArea(
         child: Material(
-          child: Events(),
+          child: AgendaPage(),
         ),
       ),
     );
