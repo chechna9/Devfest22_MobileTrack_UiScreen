@@ -19,7 +19,7 @@ class Events extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: const [
           // upper side
           Flexible(
             flex: 2,
@@ -61,17 +61,26 @@ class Footer extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Positioned(
-              right: -30,
-              bottom: -20,
+              right: -25,
+              bottom: -10,
               child: Image.asset(
                 'assets/Arrow.png',
+                width: 18,
+              ),
+            ),
+            Positioned(
+              right: -100,
+              top: -20,
+              child: Image.asset(
+                'assets/Star.png',
+                width: 18,
               ),
             ),
             RichText(
               text: const TextSpan(
                 text: 'UPCOMING ',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
@@ -114,23 +123,23 @@ class Upper extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Positioned(
-          left: -30,
-          bottom: 0,
+          left: -20,
+          bottom: 5,
           child: Image.asset(
             'assets/Lampe.png',
-            width: 60,
+            width: 50,
           ),
         ),
         Positioned(
-          right: -70,
-          top: 0,
+          right: -170,
+          top: -10,
           child: Image.asset('assets/Maqam_el_chahid.png'),
         ),
         RichText(
           text: const TextSpan(
             text: 'CURRENT ',
             style: TextStyle(
-              fontSize: 30,
+              fontSize: 25,
               color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
