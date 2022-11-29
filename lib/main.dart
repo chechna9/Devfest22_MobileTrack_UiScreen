@@ -1,3 +1,6 @@
+import 'package:devfest_challenges/pages/agenda_page.dart';
+import 'package:devfest_challenges/pages/events.dart';
+import 'package:devfest_challenges/pages/feedbacks.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,22 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Material(
-      child: Center(
-        child: Text(
-          "Azul World",
-          style: TextStyle(fontSize: 40),
-        ),
+      home: const SafeArea(
+        child: Events(),
       ),
     );
   }
