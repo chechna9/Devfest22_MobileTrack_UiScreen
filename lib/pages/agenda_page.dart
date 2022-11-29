@@ -1,9 +1,102 @@
 import 'package:devfest_challenges/components/action_card.dart';
 import 'package:devfest_challenges/models/action_model.dart';
+import 'package:devfest_challenges/models/agenda_model.dart';
+import 'package:devfest_challenges/models/day_model.dart';
 import 'package:flutter/material.dart';
 
-class AgendaPage extends StatelessWidget {
+AgendaModele agenda = AgendaModele(days: [
+  DayModele(actions: [
+    ActionModele(
+      time: '08:30 AM',
+      date: '1 nov',
+      name: 'day 1 action 1',
+      main: Colors.blue[200],
+      sec: Colors.blue,
+    ),
+    ActionModele(
+      time: '10:30 AM',
+      date: '1 nov',
+      name: 'day 1 action 2',
+      main: Colors.amber[200],
+      sec: Colors.amber,
+    ),
+    ActionModele(
+      time: '11:30 AM',
+      date: '1 nov',
+      name: 'day 1 action 3',
+      main: Colors.blue[200],
+      sec: Colors.blue,
+    ),
+    ActionModele(
+      time: '12:30 AM',
+      date: '1 nov',
+      name: 'day 1 action 4',
+      main: Colors.red[200],
+      sec: Colors.red,
+    ),
+    ActionModele(
+      time: '14:30 AM',
+      date: '1 nov',
+      name: 'day 1 action 5',
+      main: Colors.blue[200],
+      sec: Colors.blue,
+    ),
+  ]),
+  DayModele(actions: [
+    ActionModele(
+      time: '08:30 AM',
+      date: '2 nov',
+      name: 'day 2 action 1',
+      main: Colors.blue[200],
+      sec: Colors.blue,
+    ),
+    ActionModele(
+      time: '10:30 AM',
+      date: '2 nov',
+      name: 'day 2 action 2',
+      main: Colors.amber[200],
+      sec: Colors.amber,
+    ),
+    ActionModele(
+      time: '11:30 AM',
+      date: '2 nov',
+      name: 'day 2 action 3',
+      main: Colors.red[200],
+      sec: Colors.red,
+    ),
+    ActionModele(
+      time: '12:30 AM',
+      date: '2 nov',
+      name: 'day 2 action 4',
+      main: Colors.blue[200],
+      sec: Colors.blue,
+    ),
+  ])
+]);
+
+class AgendaPage extends StatefulWidget {
   const AgendaPage({super.key});
+
+  @override
+  State<AgendaPage> createState() => _AgendaPageState();
+}
+
+class _AgendaPageState extends State<AgendaPage> {
+  late int currentDay;
+  void setCurrentDay(day) {
+    setState(() {
+      currentDay = day;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      currentDay = 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,91 +142,54 @@ class AgendaPage extends StatelessWidget {
             // Upper
             children: [
               const Upper(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey[300],
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                    ),
-                    child: const Text(
-                      'DAY 1',
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.amber[300],
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                    ),
-                    child: const Text(
-                      'DAY 2',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
+// generate days from agenda
+              SizedBox(
+                height: 40,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: agenda.days.length,
+                  itemBuilder: (context, index) {
+                    return Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            setCurrentDay(index + 1);
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: (index + 1) == currentDay
+                                ? Colors.amber
+                                : Colors.grey[300],
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              ),
+                            ),
+                          ),
+                          child: Text(
+                            'DAY ${index + 1}',
+                            style: TextStyle(
+                                color: (index + 1) == currentDay
+                                    ? Colors.white
+                                    : Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
               Flexible(
                 flex: 3,
                 child: ListView(
-                  children: [
-                    ActionCard(
-                      action: ActionModele(
-                          time: '8:30 Am',
-                          date: '01 nov',
-                          name: 'Openning Ceremony'),
-                      mainColor: Colors.blue[200],
-                      secColor: Colors.blue,
-                    ),
-                    const SizedBox(height: 10),
-                    ActionCard(
-                      action: ActionModele(
-                          time: '8:30 Am',
-                          date: '01 nov',
-                          name: 'Openning Ceremony'),
-                      mainColor: Colors.amber[100],
-                      secColor: Colors.amber,
-                    ),
-                    const SizedBox(height: 10),
-                    ActionCard(
-                      action: ActionModele(
-                          time: '8:30 Am',
-                          date: '01 nov',
-                          name: 'Openning Ceremony'),
-                      mainColor: Colors.blue[200],
-                      secColor: Colors.blue,
-                    ),
-                    const SizedBox(height: 10),
-                    ActionCard(
-                      action: ActionModele(
-                          time: '8:30 Am',
-                          date: '01 nov',
-                          name: 'Openning Ceremony'),
-                      mainColor: Colors.red[100],
-                      secColor: Colors.red,
-                    ),
-                    const SizedBox(height: 10),
-                    ActionCard(
-                      action: ActionModele(
-                          time: '8:30 Am',
-                          date: '01 nov',
-                          name: 'Openning Ceremony'),
-                      mainColor: Colors.blue[200],
-                      secColor: Colors.blue,
-                    ),
-                  ],
+                  children: agenda.days.first.actions
+                      .map(
+                        (e) => ActionCard(action: e),
+                      )
+                      .toList(),
                 ),
               ),
               const SizedBox(height: 10),

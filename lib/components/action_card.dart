@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 
 class ActionCard extends StatelessWidget {
   final ActionModele action;
-  final Color? mainColor;
-  final Color? secColor;
-  const ActionCard(
-      {super.key,
-      required this.action,
-      required this.mainColor,
-      required this.secColor});
+
+  const ActionCard({
+    super.key,
+    required this.action,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,8 @@ class ActionCard extends StatelessWidget {
       children: [
         // time and date
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          margin: const EdgeInsets.only(top: 10),
           decoration: BoxDecoration(
             color: Colors.grey[300],
             borderRadius: BorderRadius.circular(20),
@@ -49,11 +48,11 @@ class ActionCard extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             decoration: BoxDecoration(
-                color: mainColor,
+                color: action.main,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                    color: secColor ?? Colors.blue,
+                    color: action.sec ?? Colors.blue,
                     offset: const Offset(-4, 0),
                   ),
                 ]),
