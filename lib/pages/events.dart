@@ -1,5 +1,8 @@
 import 'package:devfest_challenges/components/currentEventCard.dart';
 import 'package:devfest_challenges/components/upcomingEventCard.dart';
+import 'package:devfest_challenges/models/action_model.dart';
+import 'package:devfest_challenges/models/agenda_model.dart';
+import 'package:devfest_challenges/models/day_model.dart';
 import 'package:devfest_challenges/models/event_model.dart';
 import 'package:flutter/material.dart';
 
@@ -8,16 +11,212 @@ List<EventModele> eventList = [
     title: 'Devfest 2022',
     description: 'Devfest is an anually event held by GDG community',
     participants: 80,
+    agenda: AgendaModele(days: [
+      DayModele(actions: [
+        ActionModele(
+          time: '08:30 AM',
+          date: '1 nov',
+          name: 'Devfest day 1 action 1',
+          main: Colors.blue[200],
+          sec: Colors.blue,
+        ),
+        ActionModele(
+          time: '10:30 AM',
+          date: '1 nov',
+          name: 'Devfest day 1 action 2',
+          main: Colors.amber[200],
+          sec: Colors.amber,
+        ),
+        ActionModele(
+          time: '11:30 AM',
+          date: '1 nov',
+          name: 'Devfest day 1 action 3',
+          main: Colors.blue[200],
+          sec: Colors.blue,
+        ),
+        ActionModele(
+          time: '12:30 AM',
+          date: '1 nov',
+          name: 'Devfest day 1 action 4',
+          main: Colors.red[200],
+          sec: Colors.red,
+        ),
+        ActionModele(
+          time: '14:30 AM',
+          date: '1 nov',
+          name: 'Devfest day 1 action 5',
+          main: Colors.blue[200],
+          sec: Colors.blue,
+        ),
+      ]),
+      DayModele(actions: [
+        ActionModele(
+          time: '08:30 AM',
+          date: '1 nov',
+          name: 'Devfest day 2 action 1',
+          main: Colors.blue[200],
+          sec: Colors.blue,
+        ),
+        ActionModele(
+          time: '10:30 AM',
+          date: '2 nov',
+          name: 'Devfest day 2 action 2',
+          main: Colors.amber[200],
+          sec: Colors.amber,
+        ),
+        ActionModele(
+          time: '11:30 AM',
+          date: '2 nov',
+          name: 'Devfest day 2 action 3',
+          main: Colors.red[200],
+          sec: Colors.red,
+        ),
+        ActionModele(
+          time: '12:30 AM',
+          date: '2 nov',
+          name: 'Devfest day 2 action 4',
+          main: Colors.blue[200],
+          sec: Colors.blue,
+        ),
+      ]),
+      DayModele(actions: [
+        ActionModele(
+          time: '08:30 AM',
+          date: '1 nov',
+          name: 'Devfest day 3 action 1',
+          main: Colors.blue[200],
+          sec: Colors.blue,
+        ),
+        ActionModele(
+          time: '10:30 AM',
+          date: '2 nov',
+          name: 'Devfest day 3 action 2',
+          main: Colors.amber[200],
+          sec: Colors.amber,
+        ),
+      ])
+    ]),
   ),
   EventModele(
-    title: 'IWD 2022',
-    description: 'IWD is an anually event held by WTL community',
-    participants: 80,
-  ),
+      title: 'IWD 2022',
+      description: 'IWD is an anually event held by WTL community',
+      participants: 80,
+      agenda: AgendaModele(days: [
+        DayModele(actions: [
+          ActionModele(
+            time: '08:30 AM',
+            date: '1 nov',
+            name: 'IWD day 1 action 1',
+            main: Colors.blue[200],
+            sec: Colors.blue,
+          ),
+          ActionModele(
+            time: '10:30 AM',
+            date: '1 nov',
+            name: 'IWD day 1 action 2',
+            main: Colors.amber[200],
+            sec: Colors.amber,
+          ),
+          ActionModele(
+            time: '11:30 AM',
+            date: '1 nov',
+            name: 'IWD day 1 action 3',
+            main: Colors.blue[200],
+            sec: Colors.blue,
+          ),
+          ActionModele(
+            time: '12:30 AM',
+            date: '1 nov',
+            name: 'IWD day 1 action 4',
+            main: Colors.red[200],
+            sec: Colors.red,
+          ),
+          ActionModele(
+            time: '14:30 AM',
+            date: '1 nov',
+            name: 'IWD day 1 action 5',
+            main: Colors.blue[200],
+            sec: Colors.blue,
+          ),
+        ]),
+        DayModele(actions: [
+          ActionModele(
+            time: '08:30 AM',
+            date: '2 nov',
+            name: 'IWD day 2 action 1',
+            main: Colors.blue[200],
+            sec: Colors.blue,
+          ),
+          ActionModele(
+            time: '10:30 AM',
+            date: '2 nov',
+            name: 'IWD day 2 action 2',
+            main: Colors.amber[200],
+            sec: Colors.amber,
+          ),
+          ActionModele(
+            time: '11:30 AM',
+            date: '2 nov',
+            name: 'IWD day 2 action 3',
+            main: Colors.red[200],
+            sec: Colors.red,
+          ),
+          ActionModele(
+            time: '12:30 AM',
+            date: '2 nov',
+            name: 'IWD day 2 action 4',
+            main: Colors.blue[200],
+            sec: Colors.blue,
+          ),
+        ])
+      ])),
   EventModele(
     title: 'HashCode 2022',
     description: 'HashCode is an anually event held by GDG community',
     participants: 80,
+    agenda: AgendaModele(
+      days: [
+        DayModele(
+          actions: [
+            ActionModele(
+              time: '08:30 AM',
+              date: '1 nov',
+              name: 'HashCode day 1 action 1',
+              main: Colors.blue[200],
+              sec: Colors.blue,
+            ),
+            ActionModele(
+              time: '10:30 AM',
+              date: '1 nov',
+              name: 'HashCode day 1 action 2',
+              main: Colors.amber[200],
+              sec: Colors.amber,
+            ),
+            ActionModele(
+              time: '11:30 AM',
+              date: '1 nov',
+              name: 'HashCode day 1 action 3',
+              main: Colors.blue[200],
+              sec: Colors.blue,
+            ),
+            ActionModele(
+              time: '12:30 AM',
+              date: '1 nov',
+              name: 'HashCode day 1 action 4',
+              main: Colors.red[200],
+              sec: Colors.red,
+            ),
+            ActionModele(
+              time: '14:30 AM',
+              date: '1 nov',
+              name: 'HashCode day 1 action 5',
+              main: Colors.blue[200],
+              sec: Colors.blue,
+            ),
+          ],
+        ),
+      ],
+    ),
   ),
 ];
 
@@ -47,36 +246,38 @@ class _EventsState extends State<Events> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 80),
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/background.png'),
-          alignment: Alignment.topCenter,
-          fit: BoxFit.contain,
+    return Material(
+      child: Container(
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 80),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/background.png'),
+            alignment: Alignment.topCenter,
+            fit: BoxFit.contain,
+          ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // upper side
-          const Flexible(
-            flex: 2,
-            child: Upper(),
-          ),
-          // event info
-          Flexible(
-            flex: 6,
-            child:
-                Center(child: CurrentEventCard.fromEvent(event: currentEvent)),
-          ),
-          // Upcoming Event
-          Flexible(
-            flex: 3,
-            child: Footer(update: updateCurrentevent),
-          )
-        ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // upper side
+            const Flexible(
+              flex: 2,
+              child: Upper(),
+            ),
+            // event info
+            Flexible(
+              flex: 6,
+              child: Center(
+                  child: CurrentEventCard.fromEvent(event: currentEvent)),
+            ),
+            // Upcoming Event
+            Flexible(
+              flex: 3,
+              child: Footer(update: updateCurrentevent),
+            )
+          ],
+        ),
       ),
     );
   }

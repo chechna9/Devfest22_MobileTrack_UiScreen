@@ -17,25 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const SafeArea(
-        child: Material(
-          child: AgendaPage(),
-        ),
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Material(
-      child: Center(
-        child: Text(
-          "Azul World",
-          style: TextStyle(fontSize: 40),
-        ),
+        child: Events(),
       ),
     );
   }
