@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const SafeArea(
-        child: Feedbacks(),
+        child: Events(),
       ),
     );
   }

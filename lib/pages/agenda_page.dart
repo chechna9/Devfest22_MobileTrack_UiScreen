@@ -2,6 +2,7 @@ import 'package:devfest_challenges/components/action_card.dart';
 import 'package:devfest_challenges/models/action_model.dart';
 import 'package:devfest_challenges/models/agenda_model.dart';
 import 'package:devfest_challenges/models/day_model.dart';
+import 'package:devfest_challenges/pages/feedbacks.dart';
 import 'package:flutter/material.dart';
 
 class AgendaPage extends StatefulWidget {
@@ -151,7 +152,11 @@ class _AgendaPageState extends State<AgendaPage> {
                         width: 20,
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const Feedbacks(),
+                          ));
+                        },
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 15),
