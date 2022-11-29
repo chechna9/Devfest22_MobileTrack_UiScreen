@@ -185,7 +185,7 @@ class _AgendaPageState extends State<AgendaPage> {
               Flexible(
                 flex: 3,
                 child: ListView(
-                  children: agenda.days.first.actions
+                  children: agenda.days[currentDay - 1].actions
                       .map(
                         (e) => ActionCard(action: e),
                       )
