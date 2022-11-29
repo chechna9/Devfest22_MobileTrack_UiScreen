@@ -182,7 +182,9 @@ class _AgendaPageState extends State<AgendaPage> {
                         child: const Text(
                           'SUBSCRIBE',
                           style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],

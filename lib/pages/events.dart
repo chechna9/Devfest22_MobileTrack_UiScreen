@@ -10,7 +10,7 @@ List<EventModele> eventList = [
   EventModele(
     title: 'Devfest 2022',
     description: 'Devfest is an anually event held by GDG community',
-    participants: 80,
+    participants: 180,
     agenda: AgendaModele(days: [
       DayModele(actions: [
         ActionModele(
@@ -173,7 +173,7 @@ List<EventModele> eventList = [
   EventModele(
     title: 'HashCode 2022',
     description: 'HashCode is an anually event held by GDG community',
-    participants: 80,
+    participants: 70,
     agenda: AgendaModele(
       days: [
         DayModele(
