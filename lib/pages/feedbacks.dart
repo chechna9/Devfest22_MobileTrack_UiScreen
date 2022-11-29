@@ -24,6 +24,9 @@ class _FeedbacksState extends State<Feedbacks> {
     });
   }
 
+  String name = "";
+  String details = "";
+  GlobalKey<FormState> _formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +54,7 @@ class _FeedbacksState extends State<Feedbacks> {
                 flex: 3,
                 child: SingleChildScrollView(
                   child: Form(
+                    key: _formKey,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
@@ -77,7 +81,15 @@ class _FeedbacksState extends State<Feedbacks> {
                                   myOutlinedBorder(color: Colors.black),
                               enabledBorder:
                                   myOutlinedBorder(color: Colors.transparent),
+                              errorBorder: myOutlinedBorder(color: Colors.red),
+                              focusedErrorBorder:
+                                  myOutlinedBorder(color: Colors.red),
                             ),
+                            onChanged: ((value) {
+                              name = value;
+                            }),
+                            validator: (value) =>
+                                value!.isEmpty ? 'required fieldd' : null,
                           ),
                           const SizedBox(
                             height: 20,
@@ -142,6 +154,9 @@ class _FeedbacksState extends State<Feedbacks> {
                             height: 20,
                           ),
                           TextFormField(
+                            onChanged: ((value) {
+                              details = value;
+                            }),
                             maxLines: 3,
                             decoration: InputDecoration(
                               filled: true,
@@ -158,7 +173,14 @@ class _FeedbacksState extends State<Feedbacks> {
                             child: Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
-                                onPressed: () => {},
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text("$name $rate $details"),
+                                    ));
+                                  }
+                                },
                                 style: TextButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 20, vertical: 20),
