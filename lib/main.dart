@@ -15,7 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Material(child: Events()),
+      home: const SafeArea(
+        child: Material(
+          child: Events(),
+        ),
+      ),
     );
   }
 }

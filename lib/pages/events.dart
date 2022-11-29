@@ -1,4 +1,5 @@
 import 'package:devfest_challenges/components/currentEventCard.dart';
+import 'package:devfest_challenges/components/upcomingEventCard.dart';
 import 'package:flutter/material.dart';
 
 class Events extends StatelessWidget {
@@ -7,7 +8,7 @@ class Events extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 80),
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/background.png'),
@@ -18,13 +19,15 @@ class Events extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           // upper side
           Flexible(
+            flex: 2,
             child: Upper(),
           ),
           // event info
           Flexible(
+            flex: 6,
             child: Center(
               child: CurrentEventCard(
                 title: 'Devfest 2022',
@@ -33,8 +36,68 @@ class Events extends StatelessWidget {
               ),
             ),
           ),
+          // Upcoming Event
+          Flexible(
+            flex: 3,
+            child: Footer(),
+          )
         ],
       ),
+    );
+  }
+}
+
+class Footer extends StatelessWidget {
+  const Footer({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Positioned(
+              right: -30,
+              bottom: -20,
+              child: Image.asset(
+                'assets/Arrow.png',
+              ),
+            ),
+            RichText(
+              text: const TextSpan(
+                text: 'UPCOMING ',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                children: <TextSpan>[
+                  TextSpan(text: 'E', style: TextStyle(color: Colors.blue)),
+                  TextSpan(text: 'VENTS'),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        // Events
+        Expanded(
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              UpcomingEventCard(),
+              UpcomingEventCard(),
+              UpcomingEventCard(),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
