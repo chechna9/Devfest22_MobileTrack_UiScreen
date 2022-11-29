@@ -1,3 +1,4 @@
+import 'package:devfest_challenges/models/eventModel.dart';
 import 'package:flutter/material.dart';
 
 class CurrentEventCard extends StatelessWidget {
@@ -10,7 +11,11 @@ class CurrentEventCard extends StatelessWidget {
     required this.desc,
     required this.participants,
   }) : super(key: key);
-
+  factory CurrentEventCard.fromEvent({required EventModele event}) =>
+      CurrentEventCard(
+          title: event.title,
+          desc: event.description,
+          participants: event.participants);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,15 +55,18 @@ class CurrentEventCard extends StatelessWidget {
             ),
             // stats and other 2 other images
             Positioned(
-              left: 0,
+              left: -20,
               bottom: 20,
               child: Column(
                 children: [
-                  Image.asset('assets/Developers.png'),
+                  Image.asset(
+                    'assets/Developers.png',
+                    width: 80,
+                  ),
                   Text(
                     "+$participants",
                     style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.white,
                         fontWeight: FontWeight.w500),
                   ),

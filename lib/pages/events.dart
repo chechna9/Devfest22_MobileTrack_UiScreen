@@ -1,9 +1,49 @@
 import 'package:devfest_challenges/components/currentEventCard.dart';
 import 'package:devfest_challenges/components/upcomingEventCard.dart';
+import 'package:devfest_challenges/models/eventModel.dart';
 import 'package:flutter/material.dart';
 
-class Events extends StatelessWidget {
+List<EventModele> eventList = [
+  EventModele(
+    title: 'Devfest 2022',
+    description: 'Devfest is an anually event held by GDG community',
+    participants: 80,
+  ),
+  EventModele(
+    title: 'IWD 2022',
+    description: 'IWD is an anually event held by WTL community',
+    participants: 80,
+  ),
+  EventModele(
+    title: 'HashCode 2022',
+    description: 'HashCode is an anually event held by GDG community',
+    participants: 80,
+  ),
+];
+
+class Events extends StatefulWidget {
   const Events({super.key});
+
+  @override
+  State<Events> createState() => _EventsState();
+}
+
+class _EventsState extends State<Events> {
+  late EventModele currentEvent;
+  // function to be passed to upcoming events to update the state
+  void updateCurrentevent(EventModele e) {
+    setState(() {
+      currentEvent = e;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      currentEvent = eventList[0];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,27 +59,22 @@ class Events extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           // upper side
-          Flexible(
+          const Flexible(
             flex: 2,
             child: Upper(),
           ),
           // event info
           Flexible(
             flex: 6,
-            child: Center(
-              child: CurrentEventCard(
-                title: 'Devfest 2022',
-                desc: 'Devfest is an anually event hel by gdg community',
-                participants: 80,
-              ),
-            ),
+            child:
+                Center(child: CurrentEventCard.fromEvent(event: currentEvent)),
           ),
           // Upcoming Event
           Flexible(
             flex: 3,
-            child: Footer(),
+            child: Footer(update: updateCurrentevent),
           )
         ],
       ),
@@ -48,8 +83,10 @@ class Events extends StatelessWidget {
 }
 
 class Footer extends StatelessWidget {
+  final Function update;
   const Footer({
     Key? key,
+    required this.update,
   }) : super(key: key);
 
   @override
@@ -99,11 +136,14 @@ class Footer extends StatelessWidget {
         Expanded(
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: [
-              UpcomingEventCard(),
-              UpcomingEventCard(),
-              UpcomingEventCard(),
-            ],
+            children: eventList
+                .map(
+                  (e) => GestureDetector(
+                    onTap: () => update(e),
+                    child: UpcomingEventCard(event: e),
+                  ),
+                )
+                .toList(),
           ),
         )
       ],
